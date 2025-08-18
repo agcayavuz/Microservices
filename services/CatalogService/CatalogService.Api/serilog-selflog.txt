@@ -1,0 +1,10 @@
+2025-08-17T16:04:36.7228946Z Caught exception while preforming bulk operation to Elasticsearch: Elasticsearch.Net.ElasticsearchClientException: Request failed to execute. Call: Status code 400 from: POST /_bulk. ServerError: Type: illegal_argument_exception Reason: "Action/metadata line [1] contains an unknown parameter [_type]"
+   at Elasticsearch.Net.Transport`1.HandleElasticsearchClientException(RequestData data, Exception clientException, IElasticsearchResponse response)
+   at Elasticsearch.Net.Transport`1.FinalizeResponse[TResponse](RequestData requestData, IRequestPipeline pipeline, List`1 seenExceptions, TResponse response)
+   at Elasticsearch.Net.Transport`1.RequestAsync[TResponse](HttpMethod method, String path, CancellationToken cancellationToken, PostData data, IRequestParameters requestParameters)
+   at Serilog.Sinks.Elasticsearch.ElasticsearchSink.EmitBatchAsync(IEnumerable`1 events)
+2025-08-17T16:04:38.7630595Z Caught exception while preforming bulk operation to Elasticsearch: Elasticsearch.Net.ElasticsearchClientException: Request failed to execute. Call: Status code 400 from: POST /_bulk. ServerError: Type: illegal_argument_exception Reason: "Action/metadata line [1] contains an unknown parameter [_type]"
+   at Elasticsearch.Net.Transport`1.HandleElasticsearchClientException(RequestData data, Exception clientException, IElasticsearchResponse response)
+   at Elasticsearch.Net.Transport`1.FinalizeResponse[TResponse](RequestData requestData, IRequestPipeline pipeline, List`1 seenExceptions, TResponse response)
+   at Elasticsearch.Net.Transport`1.RequestAsync[TResponse](HttpMethod method, String path, CancellationToken cancellationToken, PostData data, IRequestParameters requestParameters)
+   at Serilog.Sinks.Elasticsearch.ElasticsearchSink.EmitBatchAsync(IEnumerable`1 events)

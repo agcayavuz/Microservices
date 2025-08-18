@@ -1,0 +1,69 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36401.2
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "services", "services", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CatalogService", "CatalogService", "{1429BCCE-6BA2-4A82-8116-B929568A73E3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Api", "services\CatalogService\CatalogService.Api\CatalogService.Api.csproj", "{22D9E876-052D-4629-861A-63F6FA5482D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Domain", "services\CatalogService\CatalogService.Domain\CatalogService.Domain.csproj", "{F434B90D-BF0B-4BE7-ACA6-B50FB70762AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Application", "services\CatalogService\CatalogService.Application\CatalogService.Application.csproj", "{4B2B9172-2CAF-411D-98F1-EE0436AF1B6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CatalogService.Infrastructure", "services\CatalogService\CatalogService.Infrastructure\CatalogService.Infrastructure.csproj", "{2E9BED9A-AC4A-4340-8EFA-4CC23FFBF796}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{FA04AB18-3649-4A18-8CC9-632A2FAA7E65}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{B52AAA2C-D730-4CE2-ABBD-32CBA5F41D6F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{8F4864EC-F2D6-4AE2-9FEC-A6F7391DDF18}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\YavuzAgca\Downloads\CatalogServiceDocs\CatalogService-DeveloperGuide.md = C:\Users\YavuzAgca\Downloads\CatalogServiceDocs\CatalogService-DeveloperGuide.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{8EC462FD-D22E-90A8-E5CE-7E832BA40C5D}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\YavuzAgca\Downloads\CatalogServiceDocs\README.md = C:\Users\YavuzAgca\Downloads\CatalogServiceDocs\README.md
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{22D9E876-052D-4629-861A-63F6FA5482D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{22D9E876-052D-4629-861A-63F6FA5482D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{22D9E876-052D-4629-861A-63F6FA5482D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{22D9E876-052D-4629-861A-63F6FA5482D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F434B90D-BF0B-4BE7-ACA6-B50FB70762AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F434B90D-BF0B-4BE7-ACA6-B50FB70762AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F434B90D-BF0B-4BE7-ACA6-B50FB70762AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F434B90D-BF0B-4BE7-ACA6-B50FB70762AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4B2B9172-2CAF-411D-98F1-EE0436AF1B6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4B2B9172-2CAF-411D-98F1-EE0436AF1B6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4B2B9172-2CAF-411D-98F1-EE0436AF1B6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4B2B9172-2CAF-411D-98F1-EE0436AF1B6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E9BED9A-AC4A-4340-8EFA-4CC23FFBF796}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E9BED9A-AC4A-4340-8EFA-4CC23FFBF796}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E9BED9A-AC4A-4340-8EFA-4CC23FFBF796}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E9BED9A-AC4A-4340-8EFA-4CC23FFBF796}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{1429BCCE-6BA2-4A82-8116-B929568A73E3} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{22D9E876-052D-4629-861A-63F6FA5482D6} = {1429BCCE-6BA2-4A82-8116-B929568A73E3}
+		{F434B90D-BF0B-4BE7-ACA6-B50FB70762AA} = {1429BCCE-6BA2-4A82-8116-B929568A73E3}
+		{4B2B9172-2CAF-411D-98F1-EE0436AF1B6B} = {1429BCCE-6BA2-4A82-8116-B929568A73E3}
+		{2E9BED9A-AC4A-4340-8EFA-4CC23FFBF796} = {1429BCCE-6BA2-4A82-8116-B929568A73E3}
+		{B52AAA2C-D730-4CE2-ABBD-32CBA5F41D6F} = {FA04AB18-3649-4A18-8CC9-632A2FAA7E65}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D6289F9F-5B5B-42D0-A7CF-634E2E816671}
+	EndGlobalSection
+EndGlobal
