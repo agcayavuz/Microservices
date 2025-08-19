@@ -1,0 +1,38 @@
+services:
+  redis:
+    image: redis:${REDIS_VERSION}
+    container_name: redis
+    restart: unless-stopped
+    command:
+      - redis-server
+      - --requirepass
+      - ${REDIS_PASSWORD}
+      - --appendonly
+      - ${REDIS_APPENDONLY}
+      - --save
+      - "60"
+      - "1000"   # 60 sn'de 1000 yazma olduysa RDB snapshot
+    ports:
+      - "${REDIS_PORT}:6379"     # Hosttan: localhost:6379
+    volumes:
+      - ../data/redis:/data      # Kalıcılık
+    networks:
+      - ms-net
+
+  # İsteğe bağlı görsel arayüz
+  redisinsight:
+    image: redis/redisinsight:latest
+    container_name: redisinsight
+    restart: unless-stopped
+    environment:
+      - RI_APP_HOST=0.0.0.0
+    ports:
+      - "5540:5540"              # UI: http://localhost:5540
+    depends_on:
+      - redis
+    networks:
+      - ms-net
+
+networks:
+  ms-net:
+    external: true

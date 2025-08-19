@@ -1,0 +1,80 @@
+
+
+1. Konuma geç ve ağı hazırla
+cd D:\Projeler\microservices-stack\docker\scripts
+Set-ExecutionPolicy -Scope Process Bypass -Force
+.\create-network.ps1
+
+
+2. (Opsiyonel) İmajları önden indir
+docker compose --env-file ..\env\elastic.env   -f ..\compose\elasticsearch.yml pull
+docker compose --env-file ..\env\kibana.env    -f ..\compose\kibana.yml        pull
+docker compose --env-file ..\env\postgres.env  -f ..\compose\postgresql.yml    pull
+docker compose --env-file ..\env\rabbitmq.env  -f ..\compose\rabbitmq.yml      pull
+docker compose --env-file ..\env\redpanda.env  -f ..\compose\redpanda.yml      pull
+docker compose --env-file ..\env\redis.env     -f ..\compose\redis.yml         pull
+
+
+3. Elasticsearch
+docker compose --env-file ..\env\elastic.env -f ..\compose\elasticsearch.yml up -d
+docker ps --filter "name=elasticsearch" --format "table {{.Names}}\t{{.Status}}"
+curl.exe http://localhost:9200
+
+4. Kibana
+docker compose --env-file ..\env\kibana.env -f ..\compose\kibana.yml up -d
+docker ps --filter "name=kibana" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+curl.exe http://localhost:5601/api/status
+
+
+Tarayıcı: http://localhost:5601
+
+
+5. PostgreSQL
+docker compose --env-file ..\env\postgres.env -f ..\compose\postgresql.yml up -d
+docker ps --filter "name=postgres" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+Bağlantı: host localhost, port 5432, user/pass postgres/postgres
+
+
+6. RabbitMQ
+docker compose --env-file ..\env\rabbitmq.env -f ..\compose\rabbitmq.yml up -d
+docker ps --filter "name=rabbitmq" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+
+Tarayıcı: http://localhost:15672 (admin / admin)
+
+
+7. Redpanda (Kafka) + Console
+
+compose\redpanda.yml içinde Console için şu ayarların olduğundan emin ol:
+KAFKA_BROKERS=redpanda:9092 ve SERVER_LISTENADDRESS=0.0.0.0, SERVER_LISTENPORT=8080
+Ports: 8081:8080
+
+Başlat:
+
+docker compose --env-file ..\env\redpanda.env -f ..\compose\redpanda.yml up -d redpanda
+docker ps --filter "name=redpanda$" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+docker compose --env-file ..\env\redpanda.env -f ..\compose\redpanda.yml up -d redpanda-console
+docker ps --filter "name=redpanda-console" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+8. Redis
+# Başlat
+docker compose --env-file ..\env\redis.env -f ..\compose\redis.yml up -d
+
+# Durum
+docker ps --filter "name=redis" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+docker ps --filter "name=redis" --format "table {{.Names}}\t{{.Status}}\t{{.Ports}}"
+
+Tarayıcı: http://localhost:8081
+
+Hızlı broker testi:
+
+docker exec -it redpanda rpk cluster health
+docker exec -it redpanda rpk topic create quickstart
+docker exec -it redpanda rpk topic produce quickstart   # "hello" yaz, Enter; sonra Ctrl+C
+docker exec -it redpanda rpk topic consume quickstart -n 1
+
+
+Hepsi bu. Her adımda bir sorun görürsen ilgili docker compose -f ..\compose\<dosya>.yml logs --tail=200 <service> çıktısını gönder, nokta atışı çözelim.

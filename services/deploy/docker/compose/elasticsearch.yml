@@ -1,0 +1,28 @@
+version: "3.9"
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:${ELASTIC_VERSION}
+    container_name: elasticsearch
+    restart: unless-stopped
+    env_file:
+      - ../env/elastic.env
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - ../data/elasticsearch:/usr/share/elasticsearch/data
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsSL http://localhost:9200 >/dev/null || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+    networks:
+      - ms-net
+
+networks:
+  ms-net:
+    external: true

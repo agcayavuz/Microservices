@@ -1,0 +1,57 @@
+services:
+  redpanda:
+    image: redpandadata/redpanda:${REDPANDA_VERSION:-latest}
+    container_name: redpanda
+    restart: unless-stopped
+    command:
+      - redpanda
+      - start
+      - --mode
+      - dev-container
+      - --overprovisioned
+      - --smp
+      - "1"
+      - --memory
+      - ${REDPANDA_MEMORY:-1G}
+      - --node-id
+      - "0"
+      - --check=false
+      - --kafka-addr
+      - 0.0.0.0:9092
+      - --advertise-kafka-addr
+      - redpanda:9092
+    ports:
+      - "9092:9092"     # Kafka API
+      - "9644:9644"     # Admin API
+    ulimits:
+      nofile:
+        soft: 131072
+        hard: 131072
+    volumes:
+      - ../data/redpanda:/var/lib/redpanda/data
+    networks:
+      - ms-net
+
+  redpanda-console:
+    image: docker.redpanda.com/redpandadata/console:${REDPANDA_CONSOLE_VERSION:-v2.8.8}
+    container_name: redpanda-console
+    restart: unless-stopped
+    environment:
+      # Kafka bağlantısı — ŞEMA YOK (sadece host:port)
+      - KAFKA_BROKERS=redpanda:9092
+      - KAFKA_TLS_ENABLED=false
+      - KAFKA_SASL_ENABLED=false
+
+      # HTTP server — adres ve port ayrı olmalı
+      - SERVER_LISTENADDRESS=0.0.0.0
+      - SERVER_LISTENPORT=8080
+    ports:
+      - "8081:8080"     # host 8081 → container 8080
+    depends_on:
+      - redpanda
+    networks:
+      - ms-net
+
+networks:
+  ms-net:
+    external: true

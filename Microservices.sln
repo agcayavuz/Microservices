@@ -19,12 +19,42 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "deploy", "deploy", "{FA04AB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{B52AAA2C-D730-4CE2-ABBD-32CBA5F41D6F}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\docker\Tüm Docker kurulumlarını.txt = ..\..\docker\Tüm Docker kurulumlarını.txt
+		services\deploy\docker\Tüm Docker kurulumlarını.txt = services\deploy\docker\Tüm Docker kurulumlarını.txt
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{8F4864EC-F2D6-4AE2-9FEC-A6F7391DDF18}"
 	ProjectSection(SolutionItems) = preProject
 		services\CatalogService\docs\CatalogService-DeveloperGuide.md = services\CatalogService\docs\CatalogService-DeveloperGuide.md
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BasketService", "BasketService", "{BD3806E4-21CA-4AFB-9B5D-2EB0D279A4F8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "compose", "compose", "{E4CB69FC-9333-4FC1-A3B5-6A4242C83438}"
+	ProjectSection(SolutionItems) = preProject
+		services\deploy\docker\compose\elasticsearch.yml = services\deploy\docker\compose\elasticsearch.yml
+		services\deploy\docker\compose\kibana.yml = services\deploy\docker\compose\kibana.yml
+		services\deploy\docker\compose\postgresql.yml = services\deploy\docker\compose\postgresql.yml
+		services\deploy\docker\compose\rabbitmq.yml = services\deploy\docker\compose\rabbitmq.yml
+		services\deploy\docker\compose\redis.yml = services\deploy\docker\compose\redis.yml
+		services\deploy\docker\compose\redpanda.yml = services\deploy\docker\compose\redpanda.yml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "env", "env", "{34B4E48F-5374-4A39-A56E-953D4A9DA318}"
+	ProjectSection(SolutionItems) = preProject
+		services\deploy\docker\env\elastic.env = services\deploy\docker\env\elastic.env
+		services\deploy\docker\env\kibana.env = services\deploy\docker\env\kibana.env
+		services\deploy\docker\env\postgres.env = services\deploy\docker\env\postgres.env
+		services\deploy\docker\env\rabbitmq.env = services\deploy\docker\env\rabbitmq.env
+		services\deploy\docker\env\redis.env = services\deploy\docker\env\redis.env
+		services\deploy\docker\env\redpanda.env = services\deploy\docker\env\redpanda.env
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "scripts", "scripts", "{0D70BB98-94FA-46E4-ACD2-0D2AD249DAAE}"
+	ProjectSection(SolutionItems) = preProject
+		services\deploy\docker\scripts\create-network.ps1 = services\deploy\docker\scripts\create-network.ps1
+		services\deploy\docker\scripts\down-all.ps1 = services\deploy\docker\scripts\down-all.ps1
+		services\deploy\docker\scripts\up-all.ps1 = services\deploy\docker\scripts\up-all.ps1
+		services\deploy\docker\scripts\up-service.ps1 = services\deploy\docker\scripts\up-service.ps1
 	EndProjectSection
 EndProject
 Global
@@ -62,6 +92,10 @@ Global
 		{FA04AB18-3649-4A18-8CC9-632A2FAA7E65} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{B52AAA2C-D730-4CE2-ABBD-32CBA5F41D6F} = {FA04AB18-3649-4A18-8CC9-632A2FAA7E65}
 		{8F4864EC-F2D6-4AE2-9FEC-A6F7391DDF18} = {1429BCCE-6BA2-4A82-8116-B929568A73E3}
+		{BD3806E4-21CA-4AFB-9B5D-2EB0D279A4F8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E4CB69FC-9333-4FC1-A3B5-6A4242C83438} = {B52AAA2C-D730-4CE2-ABBD-32CBA5F41D6F}
+		{34B4E48F-5374-4A39-A56E-953D4A9DA318} = {B52AAA2C-D730-4CE2-ABBD-32CBA5F41D6F}
+		{0D70BB98-94FA-46E4-ACD2-0D2AD249DAAE} = {B52AAA2C-D730-4CE2-ABBD-32CBA5F41D6F}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D6289F9F-5B5B-42D0-A7CF-634E2E816671}

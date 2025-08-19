@@ -1,0 +1,15 @@
+services:
+  kibana:
+    image: docker.elastic.co/kibana/kibana:${KIBANA_VERSION}
+    container_name: kibana
+    restart: unless-stopped
+    env_file:
+      - ../env/kibana.env
+    ports:
+      - "5601:5601"
+    networks:
+      - ms-net
+
+networks:
+  ms-net:
+    external: true

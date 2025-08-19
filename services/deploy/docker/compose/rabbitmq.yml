@@ -1,0 +1,24 @@
+version: "3.9"
+services:
+  rabbitmq:
+    image: rabbitmq:${RABBITMQ_VERSION}-management
+    container_name: rabbitmq
+    restart: unless-stopped
+    env_file:
+      - ../env/rabbitmq.env
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    volumes:
+      - ../data/rabbitmq:/var/lib/rabbitmq
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsSL http://localhost:15672 >/dev/null || exit 1"]
+      interval: 15s
+      timeout: 5s
+      retries: 20
+    networks:
+      - ms-net
+
+networks:
+  ms-net:
+    external: true
