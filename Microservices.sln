@@ -69,7 +69,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Infrastructur
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{57E3E27D-6158-4947-A0A1-5459AE330934}"
 	ProjectSection(SolutionItems) = preProject
-		C:\Users\YavuzAgca\Downloads\README_BasketService.md = C:\Users\YavuzAgca\Downloads\README_BasketService.md
+		services\BasketService\docs\README_BasketService-DeveloperGuide.md = services\BasketService\docs\README_BasketService-DeveloperGuide.md
 	EndProjectSection
 EndProject
 Global
