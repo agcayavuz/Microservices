@@ -67,6 +67,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Domain", "ser
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BasketService.Infrastructure", "services\BasketService\BasketService.Infrastructure\BasketService.Infrastructure.csproj", "{F23ACAD2-9A0F-469F-B4BF-353C89E2815C}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{57E3E27D-6158-4947-A0A1-5459AE330934}"
+	ProjectSection(SolutionItems) = preProject
+		C:\Users\YavuzAgca\Downloads\README_BasketService.md = C:\Users\YavuzAgca\Downloads\README_BasketService.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -131,6 +136,7 @@ Global
 		{5183E56E-A9F2-41F5-BFA7-CCBD47E63D6F} = {BD3806E4-21CA-4AFB-9B5D-2EB0D279A4F8}
 		{D92C9ACE-5ACD-4E8E-AAC5-5FBB0E5419A8} = {BD3806E4-21CA-4AFB-9B5D-2EB0D279A4F8}
 		{F23ACAD2-9A0F-469F-B4BF-353C89E2815C} = {BD3806E4-21CA-4AFB-9B5D-2EB0D279A4F8}
+		{57E3E27D-6158-4947-A0A1-5459AE330934} = {BD3806E4-21CA-4AFB-9B5D-2EB0D279A4F8}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D6289F9F-5B5B-42D0-A7CF-634E2E816671}
